@@ -21,11 +21,12 @@ Bus 001 Device 005: ID 04b8:0e03 Seiko Epson Corp.
 Write down the vendor_id and the product_id and pass them as arguments to the test page
 ```
 sudo python -m epson_printer.testpage -v 0x04b8 -p 0x0e03
+sudo python -m epson_printer.testivan -v 0x04b8 -p 0x0202
 ```
 
 
 ### Devices
-The library should work with all ESC/POS-based Epson printers but it has only been tested with a TM-T20. If you have tested
+The library should work with all ESC/POS-based Epson printers but it has only been tested with a TM-T20 and TM-T88. If you have tested
 the library with a different model, please add it to the [list of supported printers](https://github.com/benoitguigal/python-epson-printer/wiki/List-of-supported-printers)
 
 ### ESC/POS commands
@@ -39,6 +40,9 @@ the library with a different model, please add it to the [list of supported prin
 * Bold ON/OFF
 * Underline ON/OFF
 * Font size
+
+#### QR Code commands
+* each of the 5 QR code commands needed to print QR codes based on text input.
 
 ##### Bit image commands
 * print arbitrary long bitmap pixels array
