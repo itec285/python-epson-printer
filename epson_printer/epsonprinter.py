@@ -40,7 +40,80 @@ RIGHT_JUSTIFIED = [
     ESC,
     97,    # a
     2]
-
+ROTATE_ON = [
+    ESC,
+    86,    # V
+    1]
+ROTATE_OFF = [
+    ESC,
+    86,    # V
+    0]
+QR_SELECTMODEL= [
+    GS,
+    40,    # (
+    107,   # k
+    4,
+    0,
+    49,
+    65,
+    50,		#50 for QR Code Model2, 49 for model 1 (doesn't scan on my phone), 51 for a micro qr code(doesn't scan on my phone)
+    0]
+QR_SETSIZE= [
+    GS,
+    40,    # (
+    107,   # k
+    3,
+    0,
+    49,
+    67,
+    4]		#3 = just under a 1/2 inch square QR code on TM-T88, 7 for a 1 inch square
+QR_ERRORCORRECT= [
+    GS,
+    40,    # (
+    107,   # k
+    3,
+    0,
+    49,
+    69,
+    48]
+QR_STOREDATA= [
+    GS,
+    40,    # (
+    107,   # k
+    23,		#(Length of the data below +3) % 256
+    0,		#(Length of the data below + 3) / 256
+    49,
+    80,
+    48,
+    65,		#A
+    66,		#B
+    67,		#C
+    65,		#A
+    66,		#B
+    67,		#C
+    73,		#I
+    118,	#v
+    97,		#a
+    110,	#n
+    32,		# [space]
+    119,	#w
+    97,		#a
+    115,	#s
+    32,		# [space]
+    104,	#h
+    101,	#e
+    114,	#r
+    101,	#e
+    33]		#!
+QR_PRINTDATA= [
+    GS,
+    40,    # (
+    107,   # k
+    3,
+    0,
+    49,
+    81,
+    48]
 
 def linefeed(lines=1):
     return [
@@ -324,6 +397,36 @@ class EpsonPrinter:
     @write_this
     def right_justified(self):
         return RIGHT_JUSTIFIED
+
+    @write_this
+    def rotate_on(self):
+        return ROTATE_ON
+
+    @write_this
+    def rotate_off(self):
+        return ROTATE_OFF
+
+    @write_this
+    def qr_selectmodel(self):
+        return QR_SELECTMODEL
+
+    @write_this
+    def qr_setsize(self):
+        return QR_SETSIZE
+
+    @write_this
+    def qr_errorcorrect(self):
+        return QR_ERRORCORRECT
+
+    @write_this
+    def qr_storedata(self):
+        return QR_STOREDATA
+
+    @write_this
+    def qr_printdata(self):
+        return QR_PRINTDATA
+
+
 
     @write_this
     def set_print_speed(self, speed):
