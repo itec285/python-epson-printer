@@ -41,7 +41,7 @@ the library with a different model, please add it to the [list of supported prin
 * Underline ON/OFF
 * Font size
 
-#### QR Code commands
+##### QR Code commands
 * each of the 5 QR code commands needed to print QR codes based on text input.
 
 ##### Bit image commands
